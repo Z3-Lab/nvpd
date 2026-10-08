@@ -44,15 +44,12 @@ Windows and Linux are intended to use the same workflow, but have not been execu
 
 This distribution includes all **43 paper-resolution 0.009H point clouds and matching k=7 normals** in `src/nvpd_global/datasets/hebei43_0_009H/`. `bundled_data_dir()` finds them both in the extracted source tree and after package installation. All 86 NPY files have a SHA256 manifest and sample catalog. The notebook is preconfigured to use these inputs.
 
-A separate, coarser public 0.025H dataset is available at [Hebei_Pagodas_pointcloud](https://github.com/Z3-Lab/Hebei_Pagodas_pointcloud). This separate download is optional and is not needed for the bundled reproduction example.
-
 | Input | Meaning | Paper-result status |
 | --- | --- | --- |
-| Public `0.025H` clouds | Copyright-limited public demonstration data | Runs the same workflow, but may produce different distances, clusters, and scores |
 | Bundled `0.009H` clouds with `k=7` normals | Primary experiment inputs, included in this package | Default notebook reproduces the paper's numerical global results |
 | Manually cleaned OBJ | Authorized, upright, individual pagoda meshes | Optional input for regenerating the `0.009H` clouds; not bundled |
 
-`H` is the original input's vertical extent, `max(z)-min(z)`. A voxel side is `coefficient × H`; it is **not** computed again when loading already voxelized data. Do not downsample `0.025H` clouds to `0.009H` and call this reconstruction of the original high-resolution data. The included `0.009H` arrays are already prepared; do not voxelize them again. Original OBJ access enquiries should be directed to corresponding author Yingchun Cao (`yc_cao@163.com`).
+`H` is the original input's vertical extent, `max(z)-min(z)`. A voxel side is `coefficient × H`; it is **not** computed again when loading already voxelized data. The included `0.009H` arrays are already prepared; do not voxelize them again. Original OBJ access enquiries should be directed to corresponding author Yingchun Cao (`yc_cao@163.com`).
 
 All inputs must be manually cleaned to remove unrelated objects and have their vertical axis along `+z`. This package does not implement photogrammetric reconstruction, quality management, or axis correction. Sampling mesh vertices followed by voxel averaging follows the paper; it is not equal-area surface sampling.
 
@@ -65,10 +62,6 @@ Optional terminal workflow: install with `python -m pip install .` first. Notebo
 nvpd-global --input src/nvpd_global/datasets/hebei43_0_009H --input-mode prepared \
   --samples src/nvpd_global/datasets/hebei43_0_009H/samples.csv \
   --voxel-coefficient 0.009 --output /path/to/results_bundled
-
-# Optional public demonstration: data directory contains <sample>_points.npy files.
-nvpd-global --input /path/to/public/data/npy --input-mode voxel_points \
-  --samples examples/hebei43.csv --voxel-coefficient 0.025 --output /path/to/results_public
 
 # Paper resolution: already voxelized clouds, recalculate PCA normals.
 nvpd-global --input /path/to/0.009H/clouds --input-mode voxel_points \
@@ -101,7 +94,7 @@ from nvpd_global import (bundled_data_dir, preprocess, compute_nvpd, align_nvpd,
                          compute_distances, cluster_hca, compare_clusters, save_results)
 
 INPUT_DIR = bundled_data_dir()
-VOXEL_COEFFICIENT = 0.009  # use 0.025 for the public demonstration data
+VOXEL_COEFFICIENT = 0.009  # resolution of the bundled paper inputs
 
 data = preprocess(INPUT_DIR, voxel_coefficient=VOXEL_COEFFICIENT, input_mode="prepared")
 nvpd = compute_nvpd(data)

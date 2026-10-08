@@ -78,7 +78,7 @@ def preprocess(input_dir, output_dir=None, *, input_mode="voxel_points",
     raw_points additionally voxelize using coefficient * original height.
     prepared loads matching, already oriented normals. A bundled paper catalog
     is used unless sample_table is supplied. The declared coefficient must match
-    the input: 0.009 for paper reproduction, 0.025 for the public demonstration.
+    the input; the bundled paper-reproduction data use 0.009.
     
     Returns Stage with samples and Config; displays the all-sample cloud atlas.
     Output is written only by save_results, using a new/empty result directory.

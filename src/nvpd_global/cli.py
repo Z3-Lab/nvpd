@@ -15,7 +15,7 @@ def main(argv=None):
     parser.add_argument("--input-mode", choices=["obj", "raw_points", "voxel_points", "prepared"], default="voxel_points")
     parser.add_argument("--samples", help="Optional CSV sample catalog with sample and sample_id columns")
     parser.add_argument("--voxel-coefficient", type=float, required=True,
-                        help="Voxel side / original height: 0.025 for public demonstration, 0.009 for paper replication")
+                        help="Voxel side / original height; 0.009 for the bundled paper inputs")
     parser.add_argument("--normal-k", type=int, default=7, help="PCA neighbors INCLUDING the query point (default 7)")
     parser.add_argument("--manual-k", type=int, help="Override silhouette-selected k with a valid cut in 2..8")
     parser.add_argument("--output", required=True, help="New or empty result directory")

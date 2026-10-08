@@ -20,9 +20,9 @@ Portability verification: all code cells passed in a separate macOS/Python 3.10.
 
 This entry reproduces the complete primary global experiment (former Section 3.2.1): prepared-data loading, NVPD, peak alignment, azimuthal smoothing, √JSD, average HCA, cluster characteristics/differences and full export. It does not include the other two experiments, sensitivity sweeps or ablation scripts.
 
-包内数据是 0.009H 体素点云及 k=7 质心朝向矫正法向，不是单独公开仓库中的 0.025H 粗分辨率数据。每例的点和法向逐行对应，默认 prepared 模式直接复用；不重复体素化。自动校验 samples.csv 中的分辨率、邻域、文件名及 SHA256。
+包内数据是 0.009H 体素点云及 k=7 质心朝向矫正法向。每例的点和法向逐行对应，默认 prepared 模式直接复用；不重复体素化。自动校验 samples.csv 中的分辨率、邻域、文件名及 SHA256。
 
-Bundled inputs are 0.009H voxel clouds with k=7 centroid-oriented normals, not the separate 0.025H demonstration clouds. Within each sample, points and normals correspond row by row. Prepared mode reuses these arrays without repeated voxelization. Resolution, neighborhood, filenames and SHA256 hashes are verified automatically.
+Bundled inputs are 0.009H voxel clouds with k=7 centroid-oriented normals. Within each sample, points and normals correspond row by row. Prepared mode reuses these arrays without repeated voxelization. Resolution, neighborhood, filenames and SHA256 hashes are verified automatically.
 
 ## 3. 每块输入和输出 / Module inputs and outputs
 
