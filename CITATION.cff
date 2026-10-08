@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the associated paper: A Computational Morphology Framework for Cultural Heritage Point Clouds via Normal Vector Probability Distributions, by Zizhan Zhang, Yingchun Cao and Yan Li. Also identify the code version."
+type: software
+title: "NVPD: reproduction code for global pagoda morphological analysis"
+version: 0.1.0
+authors:
+  - family-names: Zhang
+    given-names: Zizhan
+license: PolyForm-Noncommercial-1.0.0

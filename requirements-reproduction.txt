@@ -1,0 +1,6 @@
+# 参考验证环境，普通 notebook 使用者无需手动安装本文件。
+# Verified reference environment; notebook users need not install this file manually.
+numpy==2.2.5
+scipy==1.15.3
+matplotlib==3.10.7
+open3d==0.19.0
