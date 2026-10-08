@@ -6,6 +6,8 @@ A small Python package for the **primary global comparison of 43 Hebei pagodas**
 
 This package contains proportional voxel preprocessing, PCA normals, NVPD construction, facade-peak alignment, azimuthal smoothing, base-2 Jensen–Shannon distance, average-linkage hierarchical clustering, and angular difference maps. It includes a module-by-module reproduction notebook and numerical/PNG exports. It does not contain the directional-window or base/body experiments, sensitivity sweeps, ablations, test scripts, or source OBJ models.
 
+Sensitivity-analysis scripts are not publicly released because of their volume and their supplementary role in parameter evaluation rather than implementation of the core method. They are available from the first author, Zizhan Zhang (`zhangzizhan@tju.edu.cn`), on reasonable request.
+
 This repository provides the reproduction code for the paper's **43-sample primary global experiment**. The paper-resolution point clouds and matching normals are bundled so the notebook can run directly after extraction. The other two case experiments and supplementary parameter studies are outside this release.
 
 **License:** [PolyForm Noncommercial 1.0.0](LICENSE). Noncommercial research, reproduction, modification and sharing are permitted under the license; commercial use requires separate permission. This is source-available software under a noncommercial license. Bundled data have separate [noncommercial research terms](DATA_TERMS.md); source OBJ models are not included. Dependency licenses remain unchanged.
@@ -14,7 +16,7 @@ This repository provides the reproduction code for the paper's **43-sample prima
 
 Zizhan Zhang, Yingchun Cao and Yan Li. *A Computational Morphology Framework for Cultural Heritage Point Clouds via Normal Vector Probability Distributions.*
 
-Please cite this paper when using the method, code or data in research, and identify the code version. Publication details and a DOI will be added when available. Code and bundled-data enquiries: Zizhan Zhang (`zhangzizhan@tju.edu.cn`).
+Please cite this paper when using the method, code or data in research, and identify the code version. Publication details and a DOI will be added when available. Code enquiries: Zizhan Zhang (`zhangzizhan@tju.edu.cn`). Formal data requests should be directed to corresponding author Yingchun Cao (`yc_cao@163.com`).
 
 ## Start here: open the notebook and Run All
 
@@ -49,7 +51,7 @@ This distribution includes all **43 paper-resolution 0.009H point clouds and mat
 | Bundled `0.009H` clouds with `k=7` normals | Primary experiment inputs, included in this package | Default notebook reproduces the paper's numerical global results |
 | Manually cleaned OBJ | Authorized, upright, individual pagoda meshes | Optional input for regenerating the `0.009H` clouds; not bundled |
 
-`H` is the original input's vertical extent, `max(z)-min(z)`. A voxel side is `coefficient × H`; it is **not** computed again when loading already voxelized data. The included `0.009H` arrays are already prepared; do not voxelize them again. Original OBJ access enquiries should be directed to corresponding author Yingchun Cao (`yc_cao@163.com`).
+`H` is the original input's vertical extent, `max(z)-min(z)`. A voxel side is `coefficient × H`; it is **not** computed again when loading already voxelized data. The included `0.009H` arrays are already prepared; do not voxelize them again. Component segmentation files are not publicly available due to copyright and intellectual-property restrictions but can be requested from corresponding author Yingchun Cao (`yc_cao@163.com`). Original OBJ models are, in principle, not publicly released because of restrictions on redistribution; any access requires authorization from the data provider and should be discussed with the corresponding author.
 
 All inputs must be manually cleaned to remove unrelated objects and have their vertical axis along `+z`. This package does not implement photogrammetric reconstruction, quality management, or axis correction. Sampling mesh vertices followed by voxel averaging follows the paper; it is not equal-area surface sampling.
 

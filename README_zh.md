@@ -4,13 +4,15 @@
 
 本仓库提供论文 *A Computational Morphology Framework for Cultural Heritage Point Clouds via Normal Vector Probability Distributions* 的 **43 样本全量主实验复现代码**（原稿 3.2.1）。已包含论文使用的 **43 份 0.009H 点云及对应的 k=7 法向**，解压后可直接运行 notebook。不含敏感性分析、消融、其他两个实验和原始 OBJ。
 
+敏感性分析代码因体量较大、属于参数验证的补充实现而未公开，可向第一作者 Zizhan Zhang（zhangzizhan@tju.edu.cn）合理请求获取。组件分割文件因版权及知识产权限制不公开，可向通讯作者 Yingchun Cao（yc_cao@163.com）合理请求获取。原始 OBJ 原则上不公开，任何访问需数据提供方授权，并与通讯作者协商。
+
 代码采用 [PolyForm Noncommercial 1.0.0](LICENSE)：允许非商业科研、复现、修改和分享；商业使用需另行授权。这是限制商业使用的公开源代码许可。包内数据适用独立的[非商业科研使用条款](DATA_TERMS.md)，依赖库保留各自的许可。
 
 ## 关联论文与引用
 
 Zizhan Zhang, Yingchun Cao and Yan Li. *A Computational Morphology Framework for Cultural Heritage Point Clouds via Normal Vector Probability Distributions.*
 
-在研究中使用本方法、代码或数据时，请引用论文并注明代码版本。论文正式出版后补充出版信息和 DOI。代码及包内数据联系：Zizhan Zhang（zhangzizhan@tju.edu.cn）。
+在研究中使用本方法、代码或数据时，请引用论文并注明代码版本。论文正式出版后补充出版信息和 DOI。代码咨询联系第一作者 Zizhan Zhang（zhangzizhan@tju.edu.cn）；正式数据请求联系通讯作者 Yingchun Cao（yc_cao@163.com）。
 
 ## 使用方式
 

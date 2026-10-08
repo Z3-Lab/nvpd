@@ -27,3 +27,5 @@ The global analysis uses 1° binning, facade-peak alignment, 1×5 azimuthal smoo
 Raw OBJ models, segmentation files and alternative parameter datasets are not included. These bundled derived data are available for noncommercial research, reproduction and teaching under `DATA_TERMS.md` at the repository root. Commercial use requires separate written permission. Original survey/model rights remain with their respective rights holders; this release does not grant access to or permission to reuse source OBJ models.
 
 中文：本目录中的派生点云及法向允许非商业科研、复现和教学使用，详细条款见仓库根目录 `DATA_TERMS.md`。商用需另行获得书面授权。原始测绘及 OBJ 模型的权利由相应权利人保留，本次发布不授权获取或复用原始 OBJ。
+
+Formal data requests, including requests for component segmentation files, should be directed to corresponding author Yingchun Cao (`yc_cao@163.com`). The source OBJ models are, in principle, not publicly released; any access requires authorization from the data provider.
