@@ -1,5 +1,7 @@
 # NVPD：论文复现代码
 
+[English](README.md) | [简体中文](README_zh.md)
+
 本仓库提供论文 *A Computational Morphology Framework for Cultural Heritage Point Clouds via Normal Vector Probability Distributions* 的 **43 样本全量主实验复现代码**（原稿 3.2.1）。已包含论文使用的 **43 份 0.009H 点云及对应的 k=7 法向**，解压后可直接运行 notebook。不含敏感性分析、消融、其他两个实验和原始 OBJ。
 
 代码采用 [PolyForm Noncommercial 1.0.0](LICENSE)：允许非商业科研、复现、修改和分享；商业使用需另行授权。这是限制商业使用的公开源代码许可。包内数据适用独立的[非商业科研使用条款](DATA_TERMS.md)，依赖库保留各自的许可。
@@ -13,6 +15,10 @@ Zizhan Zhang, Yingchun Cao and Yan Li. *A Computational Morphology Framework for
 ## 使用方式
 
 **解压完整代码包 → 打开 `examples/global43.ipynb` → 选择“运行全部 / Run All”。**
+
+1. 在[仓库首页](https://github.com/Z3-Lab/nvpd)点击 **Code → Download ZIP**，下载并完整解压。
+2. 使用 Jupyter 或 VS Code 打开 [examples/global43.ipynb](examples/global43.ipynb)，选择 Python 3.10 或以上的内核。
+3. 点击 **Run All / 运行全部**，依次查看各模块的图像与统计结果。结果自动保存至代码目录的 `results/` 下。
 
 不需要执行安装命令、填写路径、下载数据或设置实验参数。首个代码块自动找到本地代码，检查/安装依赖，验证全部输入文件并创建输出路径；后续八个代码块逐模块完成计算、展示图像及结果保存。
 
@@ -34,6 +40,10 @@ Zizhan Zhang, Yingchun Cao and Yan Li. *A Computational Morphology Framework for
 
 Windows、Linux 按同一流程设计，但目前未实机运行验证。声明的依赖范围不代表所有系统、Python 版本及库组合都已测试；其他平台可能有细微浮点差异，可结合导出的版本记录核对距离与簇成员。
 
+## 模块化流程与关键参数
+
+以下是 notebook 中各模块的调用顺序，首块代码已自动完成导入和环境准备：
+
 ```python
 data = preprocess(environment["input_dir"], output_dir=environment["output_dir"], input_mode="prepared")
 nvpd = compute_nvpd(data)
@@ -51,7 +61,7 @@ result = save_results(comparison)
 
 每一步返回新的结果对象，不覆盖上一步。比如 `nvpd.raw`、`aligned.aligned`、`smoothed.smoothed` 是各阶段矩阵，`distances.distance` 是距离矩阵，`clusters.hca.labels` 是簇标签。
 
-公开数据的系数为 **0.025H**，可演示完整流程，不能当作论文 **0.009H** 结果的精确复现。已体素化的数据直接输入，不能再次体素化。`prepared` 模式可以加载已经求好的法向，要求点与法向逐行对应、方向已矫正。
+本仓库已包含 **0.009H** 的论文主实验输入。另一个独立发布的[粗分辨率点云数据集](https://github.com/Z3-Lab/Hebei_Pagodas_pointcloud)使用 **0.025H**，可演示同一流程，但不能当作论文 **0.009H** 结果的精确复现；运行本仓库默认 notebook 无需下载它。这里的 `H` 是原始样本的高度，体素边长为系数乘以 `H`。已体素化的数据直接输入，不能再次体素化。`prepared` 模式加载已经求好的法向，要求点与法向逐行对应、方向已矫正。
 
 论文主参数是 `0.009H`、PCA `k=7`（含自身）、1° 分箱、极角 `[80°,100°)` 的峰值对齐，然后 `1×5` 循环重叠方位平滑。平滑后依旧是 **180×360**。HCA 采用平均链接，默认在有效的 `k=2..8` 切分中选择平均轮廓系数最大值。当前论文分为三簇，大小为 4、5、34；平均轮廓系数约 0.11778668。
 
@@ -70,4 +80,4 @@ result = save_results(comparison)
 
 簇均值使用全部成员；簇内差异使用全部无序样本对；簇间差异使用两个簇的全部交叉样本对。红色表示前一个簇在该角度有更多概率，蓝色表示后一个簇有更多概率；白色也可能来自正负抵消。**无符号**贡献矩阵用于统计差异大小，符号图用于观察方向。色彩的非线性增强只改变显示，不改变计算数据。
 
-更多安装示例、输入格式和指标解释见英文 `README.md`；详细函数接口见 `docs/API.md`。代码许可见 `LICENSE`，数据使用条款见 `DATA_TERMS.md`。
+更多安装示例、输入格式和指标解释见[英文说明](README.md)；逐模块的中英文使用说明见[使用指南](docs/USAGE_zh_en.md)，详细函数接口见[API 文档](docs/API.md)。代码许可见 [LICENSE](LICENSE)，数据使用条款见 [DATA_TERMS.md](DATA_TERMS.md)。

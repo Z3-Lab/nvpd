@@ -1,5 +1,7 @@
 # NVPD: paper reproduction code
 
+[English](README.md) | [简体中文](README_zh.md)
+
 A small Python package for the **primary global comparison of 43 Hebei pagodas** in *A Computational Morphology Framework for Cultural Heritage Point Clouds via Normal Vector Probability Distributions*.
 
 This package contains proportional voxel preprocessing, PCA normals, NVPD construction, facade-peak alignment, azimuthal smoothing, base-2 Jensen–Shannon distance, average-linkage hierarchical clustering, and angular difference maps. It includes a module-by-module reproduction notebook and numerical/PNG exports. It does not contain the directional-window or base/body experiments, sensitivity sweeps, ablations, test scripts, or source OBJ models.
